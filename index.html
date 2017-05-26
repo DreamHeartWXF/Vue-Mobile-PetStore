@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, width=device-width">
+	<title></title>
+	<style>
+		#app{
+			display:none;
+		}
+	</style>
+</head>
+<body>
+<!-- 定义视图容器 -->
+<div id="app">
+	<!-- 可以被所有组件复用的视图，定义在vue实例化对象中 -->
+	<header class="header">
+		<div class="go-back" v-on:click="goBack">
+			<span><span class="green"></span></span>
+		</div>
+		<div class="login">
+			<img id="logo" src="img/home/logo.jpg" alt="">
+			<div id="datance" class="datance">
+				<div id="tance" class="tance">
+					<ul>
+						<li><a href="#home/"><img src="img/home/t1.png" alt=""></img><span>萌宠首页</span></a></li>
+						<li><a href="#/list/type/1"><img src="img/home/t2.png" alt=""></img><span>萌宠展示</span></a></li>
+						<li><a href="#home/"><img src="img/home/t3.png" alt=""></img><span>消息动态</span></a></li>
+						<li><a href="#home/"><img src="img/home/t4.png" alt=""></img><span>留言板</span></a></li>
+						<li><a href="#home/"><img src="img/home/t5.png" alt=""></img><span>关于我们</span></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<h1>萌宠天地</h1>
+		<div class="search" v-show="isShowSearch"><input v-model="search" type="text" placeholder="请输入搜索关键字" v-on:keydown.enter="showResult"></div>
+	</header>
+	
+	<!-- 可以通过component元素来动态渲染组件 -->
+	<component v-bind:search="searchQuery" v-bind:is="view"></component>
+</div>
+<script type="text/javascript">
+	//给logo注册点击事件
+	document.getElementById('logo').onclick= function () {
+		document.getElementById('datance').style.display = "block";
+		document.getElementById('tance').style.display = "block";
+	}
+	document.getElementById('datance').onclick= function () {
+		document.getElementById('tance').style.display = "none";
+		document.getElementById('datance').style.display = "none";
+	}
+</script>
+<script type="text/template" id="tpl_home">
+	<section id="home" class="home">
+		<!-- 定义首页轮播图 -->
+		<ul id="nav" class="nav clearfix">
+			<li v-for="item in nav">
+				<a v-bind:href="'#/list/type/' + item.id"><img v-bind:src="'img/home/' + item.url" alt=""></a>
+			</li>
+		</ul>
+		<!-- 定义类型 -->
+		<ul id="main" class="main clearfix">
+			<li v-for="item in main">
+				<a v-bind:href="'#/list/type/' + item.id">
+					<img v-bind:src="'img/home/' + item.url" alt="">
+					<span>{{item.breed}}</span>
+				</a>
+			</li>
+		</ul>
+		<!-- 定义热门栏目 -->
+		<div class="top">
+			<img class="left" src="img/home/tubiao1.png" alt="">
+			<span>热门栏目</span>
+			<img class="right" src="img/home/tubiao2.png" alt="">
+		</div>
+		<div id="hottop" class="hottop">
+			<div class="con"><a v-for="item in ad" v-bind:href="'#/list/type/' + item.id">
+					<img v-bind:src="'img/home/' + item.img" alt=""></a>
+			</div>
+		</div>
+		<!-- 定义首页列表 -->
+		<div class="top">
+				<img class="left" src="img/home/tubiao1.png" alt="">
+				<span>萌宠狗狗</span>
+				<img class="right" src="img/home/tubiao2.png" alt="">
+			</div>
+		<ul class="list">
+			<li class="clearfix" v-for="item in items">
+				<a v-bind:href="'#/list/type/' + item.id">
+					<img v-bind:src="'img/home/' + item.img" alt="">
+					<div class="container">
+						<span>品种:</span>
+						<h2>{{item.breed}}</h2>
+						<p><span>详细介绍:</span>{{item.title}}</p>
+					</div>
+				</a>
+			</li>
+		</ul>
+	</section>
+</script>
+<script type="text/template" id="tpl_list">
+	<!-- 定义列表页 -->
+	<section id="lists" class="lists ">
+		<ul class="rank clearfix">
+			<li v-for="item in rank" v-on:click="sort(item.key)">
+				{{item.value}}
+				<span></span>
+			</li>
+		</ul>
+		<ul class="tab">
+			<li class="clearfix" v-for="item in list | filterBy search" >
+				<a class="img" v-bind:href="'#/pet/' + item.id">
+					<img v-bind:src="'img/list/' + item.img" alt="">
+				</a>
+				<p><span>名称:</span><a v-bind:href="'#/pet/' + item.id">{{item.name}}</a></p>
+				<span class="price">价格:<em>{{item.price | priceFilter}}</em></span>
+				<span>{{item.native | nativeFilter}}</span>
+			</li>
+		</ul>
+		<div class="load-more" v-on:click="showAll" v-show="other.length">
+			<span>查看更多</span>
+			<span class="arrow"><span class="arrow white"></span></span>
+		</div>
+	</section>
+</script>
+<script type="text/template" id="tpl_pet">
+	<!-- 定义详细信息页 -->
+	<section id="pet" class="pet" v-for="item in data">
+		<div class="image"><img v-bind:src="'img/list/' + item.img" alt=""></div>
+		<div>
+			<p class="title">{{item.title}}</p>
+			<p class="price">
+				<span class="price-name">淘狗价:</span>
+				<span class="price-value">{{item.price | currency '￥' }}</span>
+			</p>
+			<ul class="message clearfix">
+				<li>
+					<span>在售只数</span>
+					<span class="red">{{item.onsale | onsaleFilter}}</span>
+				</li>
+				<li>
+					<span>品种</span>
+					<span class="red">{{item.breed}}</span>
+				</li>
+				<li>
+					<span>年龄</span>
+					<span class="red">{{item.age | ageFilter}}</span>
+				</li>
+				<li>
+					<span>防疫</span>
+					<span class="red">{{item.fangyi | fangyiFilter}}</span>
+				</li>
+			</ul>
+			<ul class="address clearfix">
+				<li>联系方式：{{item.phone}}</li>
+				<li>联 系 人：{{item.linkman}}</li>
+				<li>地&nbsp;&nbsp;址：{{item.address}}</li>
+			</ul>
+		</div>
+	</section>
+</script>
+<script type="text/javascript" data-main="js/bootstrap.js" src="js/lib/require.js"></script>
+
+</body>
+</html>

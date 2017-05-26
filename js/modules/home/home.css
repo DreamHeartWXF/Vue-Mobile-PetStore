@@ -1,0 +1,200 @@
+/*定义轮播图样式*/
+.nav{
+	width: 800%;
+	margin-top:55px;
+	position: relative;
+	left: 0;
+	top: 0;
+}
+.nav li{
+	width: 12.5%;
+	float:left;
+	font-size: 0px;
+}
+.nav li a{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.nav li img{
+	width: 100%;
+	height: 150px;
+}
+.main{
+	margin-top:10px;
+}
+.main li{
+	float:left;
+	width: 20%;
+	height:75px;
+	text-align: center;
+}
+.main li a{
+	display: block;
+	height: 75px;
+	position: relative;
+}
+.main li a img{
+	height: 56px;
+	width: 82%;
+	border-radius:50%;
+}
+.main li a span {
+	font-size:12px;
+	color:#FF0000;
+	position: absolute;
+	left:21px;
+	bottom:-1px;
+}
+/*定义类别样式*/
+.type{
+	margin-left:5px;
+}
+.type li{
+	float:left;
+	width: 18%;
+	height:40px;
+	line-height: 40px;
+	background: skyblue;
+	border-radius: 5%;
+	text-align: center;
+	font-size:14px;
+}
+.type li a{
+	text-decoration: none;
+	color:#000;
+}
+/*定义热门栏目样式*/
+.hottop{
+	position: relative;
+	background-color: #fff;
+	text-align: center;
+	border-bottom: 1px solid #eee;
+	height: 170px;
+}
+.hottop .data{
+	border-bottom: 1px solid #ccc;
+	height:50px;
+}
+.hottop .data img{
+	height: 50px;
+}
+.hottop .con{
+	height: 170px;
+	width: 100%;
+	position: absolute;
+}
+.hottop .con img{
+	display: block;
+}
+.hottop .con a:nth-child(1){
+	height: 100%;
+	width: 40%;
+	position: absolute;
+	top:0px;
+	left:0px;
+	bottom:0px;
+}
+.hottop .con a:nth-child(1) img{
+	width: 100%;
+	height: 100%;
+	border-right: 1px solid #ccc;
+}
+.hottop .con a:nth-child(2){
+	width: 60%;
+	height: 50%;
+	position: absolute;
+	right:0px;
+	top:0px;
+}
+.hottop .con a:nth-child(2) img{
+	width: 100%;
+	height: 100%;
+	border-bottom: 1px solid #ccc;
+}
+.hottop .con a:nth-child(3){
+	width: 60%;
+	height: 50%;
+	float:right;
+	position: absolute;
+	right:0px;
+	bottom:0px;
+}
+.hottop .con a:nth-child(3) img{
+	width: 100%;
+	height: 100%;
+}
+/*定义商品列表样式*/
+.top{
+	height: 50px;
+	padding:0px;
+	position: relative;
+	text-align: center;
+	background: #fff;
+	margin-top:10px;
+	border-bottom: 1px solid #ccc;
+}
+.top img{
+	height: 7px;
+	width: 60px;
+}
+.top .left{
+	position: absolute;
+	top:23px;
+	left:80px;
+}
+.top .right{
+	position: absolute;
+	top:23px;
+	right:80px;
+}
+.top span{
+	font-size: 18px;
+	line-height:50px;
+	color:red;
+	font-weight: bold;
+}
+.list{
+	background: #fff;
+	padding: 0 10px;
+}
+.list li{
+	height: 80px;
+	padding:20px 0;
+	border-bottom: 1px solid #ccc;
+}
+.list li img{
+	height: 100%;
+	width:140px;
+	float:left;
+}
+.list a {
+	text-decoration: none;
+	color: #000;
+}
+.list .container {
+	margin-left: 145px;
+	height: 79px;
+}
+.list h2 {
+	display: inline-block;
+	width: 80px;
+	height: 25px;
+	line-height: 25px;
+	border-radius: 18px;
+	font-size: 14px;
+	color:#fff;
+	background: #FC643F;
+	text-align: center;
+}
+.list span{
+	color:#000;
+	font-size:14px;
+}
+.list .container p {
+	font-size: 12px;
+	color: #666;
+}
+.list .container p span{
+	color:#000;
+}

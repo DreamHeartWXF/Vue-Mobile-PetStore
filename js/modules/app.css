@@ -1,0 +1,111 @@
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.home {
+	width: 100%;
+	background: #efefef;
+}
+div#app{
+	display:block;
+}
+/* 定义工具类 */
+.clearfix:after {
+	clear: both;
+	content: '';
+	display: block;
+} 
+/*定义头部样式*/
+.header {
+	background: #FAFBFD;
+	height: 60px;
+	line-height: 60px;
+	/*padding-bottom: 45px;*/
+}
+.header .go-back {
+	float: left;
+	position: relative;
+}
+.header .go-back span {
+	border: 12px solid transparent;
+	border-right: 12px solid deepskyblue;
+	font-size: 0;
+	position: absolute;
+	left: -1px;
+	top: 18px;
+}
+.header .go-back .green {
+	border-right-color: #FAFBFD;
+	top: -12px;
+	left: -10px;
+}
+.header .login  img{
+	float: right;
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	right: 6px;
+	top:5px;
+}
+.header .login .datance{
+	width: 400px;
+	height: 600px;
+	position: absolute;
+	top:61px;
+	right:0px;
+}
+.header .login .tance {
+	width: 200px;
+	height: 579px;
+	z-index: 99;
+	background-color: #fff;
+	position: absolute;
+	top:0px;
+	right:0px;
+	display: none;
+	z-index: 99;
+}
+.header .login .tance ul li{
+	height: 60px;
+	border-bottom: 1px solid #ccc;
+	position: relative;
+}
+.header .login .tance ul li a{
+	color:#000;
+}
+.header .login .tance ul li img{
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	top:10px;
+	left:28px;
+}
+.header .login .tance ul li span{
+	font-size: 16px;
+	position: absolute;
+    top: 1px;
+    left: 74px;
+}
+.header h1 {
+	font-size: 32px;
+	text-align: center;
+	border-bottom: 1px solid skyblue;
+	color:#00FFFF;
+	letter-spacing: 0;
+	text-shadow: 0px 1px 0px #999, 0px 2px 0px #888, 0px 3px 0px #777, 0px 4px 0px #666, 0px 5px 0px #555, 0px 6px 0px #444, 0px 7px 0px #333, 0px 8px 7px #001135;
+}
+.search {
+	background: #FAFBFD;
+	padding: 10px 0;
+}
+.search input {
+	background: #efefef;
+	border-radius: 20px;
+	width: 80%;
+	border: none;
+	outline: none;
+	padding: 10px 20px;
+	margin: 0 auto;
+	display: block;
+}

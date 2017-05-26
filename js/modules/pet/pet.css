@@ -1,0 +1,63 @@
+/*pet页样式*/
+.pet .image{
+	width: 100%;
+	height: 270px;
+}
+.pet .image img{
+	width: 100%;
+	height: 100%;
+}
+
+.pet .title{
+	font-size: 18px;
+	color:#000;
+	margin: 0px 10px 10px;
+	font-weight: bold;
+}
+.pet .price{
+	height:50px;
+	line-height: 50px;
+	background:#eee;
+	margin: 10px;
+	text-indent: 10px;
+}
+.pet .price .price-name{
+	font-weight: bold;
+	color:#000;
+}
+.pet .price .price-value{
+	color:#FF4017;
+	font-size: 26px;
+	font-weight: bold;
+}
+.pet .message{
+	padding-left: 10px;
+	margin-top: 15px;
+}
+.pet .message li{
+	float:left;
+	width: 80px;
+	padding:3px;
+	text-align: center;
+	border-right:1px solid #ccc;
+	font-size: 14px;
+	height:50px;
+	line-height: 25px;
+}
+.pet .message li:last-child{
+	border-right:0px;
+}
+.pet .message li span{
+	display: inline-block;
+	width: 80px;
+}
+.pet .message li .red{
+	color:#FF4017;
+	font-weight: bold;
+}
+.pet .address{
+	height:150px;
+	line-height: 30px;
+	margin:10px;
+	font-size: 16px;
+}
